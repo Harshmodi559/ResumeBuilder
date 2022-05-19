@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template1</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS-->
+	<script defer src=" {% static 'assets4/fontawesome/js/all.min.js' %}"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'assets4/plugins/bootstrap/css/bootstrap.min.css' %}">   
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{% static 'assets4/css/orbit-1.css' %}">
+</head> 
+
+<body>
+    <div class="wrapper mt-lg-5">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <h1 class="name">{{data.first_name}} {{data.last_name}}</h1>
+                <h3 class="tagline">{{data.profession}}</h3>
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fas fa-envelope"></i><a href="mailto:{{data.email}}">{{data.email}}</a></li>
+                    <li class="phone"><i class="fas fa-phone"></i><a href="tel:0123 456 789">{{data.phone_number}}</a></li>
+                    <li class="linkedin"><i class="fab fa-linkedin-in"></i><a href="{{data.linkedin}}" target="_blank">Linkedin Profile</a></li>
+                    <li class="github"><i class="fab fa-github"></i><a href="{{data.github}}" target="_blank">Github Profile</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item">
+                    <h4 class="degree">{{data.master_degree}}</h4>
+                    <h5 class="meta">{{data.university_name}}</h5>
+	                    <div class="time">{{data.master_year_from}}-{{data.master_year_to}}</div>
+                </div><!--//item-->
+                <div class="item">
+                    <h4 class="degree">{{data.school_degree}}</h4>
+                    <h5 class="meta">{{data.school_name}}</h5>
+	                    <div class="time">{{data.school_year_from}}-{{data.school_year_to}}</div>
+                </div><!--//item-->
+              
+            </div><!--//education-container-->
+            
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>{{data.lang1}} <span class="lang-desc">(Native)</span></li>
+                    <li>{{data.lang2}} <span class="lang-desc">(Professional)</span></li>
+                    {% comment %} <li>Spanish <span class="lang-desc">(Professional)</span></li> {% endcomment %}
+            </div><!--//interests-->
+            
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>{{data.hobby1}}</li>
+                    <li>{{data.hobby2}}</li>
+                    <li>{{data.hobby3}}</li>                
+                </ul>
+            </div><!--//interests-->
+            
+        </div><!--//sidebar-wrapper-->
+        
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+                <div class="summary">
+                    <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
+                </div><!--//summary-->
+            </section><!--//section-->
+            
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experiences</h2>
+                
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{data.job_title}}</h3>
+                            <div class="time">{{data.company_year_from}}-{{data.company_year_to}}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{data.company_name}}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                    <p>{{data.role}}</p>   
+                    </div><!--//details-->
+                </div><!--//item-->
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{data.job_title}}</h3>
+                            <div class="time">{{data.company_year_from}}-{{data.company_year_to}}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{data.company_name}}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                    <p>{{data.role}}</p>   
+                    </div><!--//details-->
+                </div><!--//item-->
+                
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Senior Software Engineer</h3>
+                            <div class="time">2018 - 2019</div>
+                        </div><!--//upper-row-->
+                        <div class="company">Google, London</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>  
+                        
+                    </div><!--//details-->
+                </div><!--//item-->
+                
+             
+            </section><!--//section-->
+            
+            <section class="section projects-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-archive"></i></span>Projects</h2>
+                <div class="intro">
+                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+                </div><!--//intro-->
+                <div class="item">
+                    <span class="project-title"><a href="{{data.project_link}}" target="_blank">{{data.project_title}}</a></span> - <span class="project-tagline">{{data.project_tagline}}</span>    
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="{{data.project_link}}" target="_blank">{{data.project_title}}</a></span> - <span class="project-tagline">{{data.project_tagline}}</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="{{data.project_link}}" target="_blank">{{data.project_title}}</a></span> - <span class="project-tagline">{{data.project_tagline}}</span>
+                </div><!--//item-->
+               </section><!--//section-->
+            
+            <section class="skills-section section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-rocket"></i></span>Skills &amp; Proficiency</h2>
+                <div class="skillset">        
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill1}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill1}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill1}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill2}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill3}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill4}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">{{data.skill5}}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                </div>  
+            </section><!--//skills-section-->
+            
+        </div><!--//main-body-->
+    </div>
+    <a href="download/{{data.uid}}"><button>Download Resume</button></a>
+   
+        
+</body>
+</html> 
+

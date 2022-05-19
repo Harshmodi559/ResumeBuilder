@@ -1,0 +1,37 @@
+body{background-color:rgb(7, 115, 232);}
+
+.container
+{
+padding-top:30px;
+}
+.wrapper{
+    
+    width: 70.0551181102rem;
+    background: #fff;
+    margin: 30px auto;
+    box-shadow: rgb(0 0 0 / 30%) 0.4rem 0.7rem 9.3rem 0.3rem;
+
+}
+
+.section-2
+{display: flex;}
+
+input{
+    background-color: #fefefe;
+    margin:10px;
+    width: 70%;  
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid black;
+}
+#txtarea
+{
+    background-color: #fefefe;
+    margin:10px;
+    width: 70%;  
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid black;
+}
