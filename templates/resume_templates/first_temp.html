@@ -9,7 +9,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Template1</title>
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -24,15 +24,13 @@
     />
   </head>
   <body>
-   
-    {% if user.is_authenticated %}
-    
-     {% if messages %} {% for message in messages%}
+    {% if user.is_authenticated %} {% if messages %} {% for message in
+    messages%}
     <div
       class="mt-3 alert alert-{{message.tags}} alert-dismissible fade show"
       role="alert"
     >
- <strong>{{message}}</strong>
+      <strong>{{message}}</strong>
       <button
         type="button"
         class="close"
@@ -151,27 +149,29 @@
             </div>
           </div>
           {% endfor %}
-          </div>
+        </div>
         <div class="about interest">
           <h2 class="title2">Interests</h2>
           <ul>
             {% for i in hobby %}
-            <li>
-              <i class="fa fa-book" aria-hidden="true"></i> {{i}}
-            </li>
-           {% endfor %}
+            <li><i class="fa fa-book" aria-hidden="true"></i> {{i}}</li>
+            {% endfor %}
           </ul>
         </div>
       </div>
-      <a href="{% url 'download' data.uid %}"><button class="btns">Download Resume</button></a>
+      <a href="{% url 'download' data.uid %}"
+        ><button class="btns">Download Resume</button></a
+      >
     </div>
     {% else %}
-      <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Resume</a>     
-          <a href="{% url 'login' %}"> <button class="btns" type="submit">Login</button></a>
-      </nav>
-      {% endif %}
-      
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>
+      <a href="{% url 'login' %}">
+        <button class="btns" type="submit">Login</button></a
+      >
+    </nav>
+    {% endif %}
+
     <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

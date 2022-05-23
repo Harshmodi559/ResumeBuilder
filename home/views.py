@@ -25,7 +25,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-def entries(request,id):
+def entries(request, id):
     if(request.method == "POST"):
         fname = request.POST.get('firstname')
         lname = request.POST.get('lastname')
@@ -81,7 +81,6 @@ def entries(request,id):
         # achievement2 = request.POST.get('achievement2')
     ##############
 
-
         if(fname != '' and lname != '' and profession != '' and about != '' and email != '' and ph_no != '' and github_link != '' and address != '' and linkedin_link != '' and
            master_year_from != '' and master_degree != '' and university_name != '' and
            master_year_to != '' and school_year_from != '' and school_year_to != '' and
@@ -89,29 +88,29 @@ def entries(request,id):
            and company_year_from != '' and company_year_to != ''
            and job_title != '' and company_name != '' and company_role != '' and role != ''
            and project_title != '' and project_link != '' and project_tagline != '' and
-           skill1!= '' and
+           skill1 != '' and
            achievement1 != ''):
             print("data has camed !!!!")
             try:
 
-                    Details = userDetails(uid=id,first_name=fname, last_name=lname, profession=profession, about=about,
-                                          email=email, phone_number=ph_no, github=github_link, linkedin=linkedin_link, address=address,
-                                          master_year_from=master_year_from, master_year_to=master_year_to, master_degree=master_degree, university_name=university_name,
-                                          skill1=skill1,
-                                          school_degree=school_degree, school_name=school_name, school_year_from=school_year_from, school_year_to=school_year_to,
-                                          lang1=lang1,
-                                          hobby1=hobby1, 
-                                          achievement1=achievement1, 
-                                          project_title=project_title, project_tagline=project_tagline, project_link=project_link,
-                                          job_title=job_title, company_name=company_name, company_role=company_role, company_year_from=company_year_from, company_year_to=company_year_to, role=role
-                                          )
-                    Details.save()
-                    messages.success(request, 'Saved to DB')
-                    # print(Details.uid)
-                    return redirect('/select_template/{}'.format(Details.uid))
+                Details = userDetails(uid=id, first_name=fname, last_name=lname, profession=profession, about=about,
+                                      email=email, phone_number=ph_no, github=github_link, linkedin=linkedin_link, address=address,
+                                      master_year_from=master_year_from, master_year_to=master_year_to, master_degree=master_degree, university_name=university_name,
+                                      skill1=skill1,
+                                      school_degree=school_degree, school_name=school_name, school_year_from=school_year_from, school_year_to=school_year_to,
+                                      lang1=lang1,
+                                      hobby1=hobby1,
+                                      achievement1=achievement1,
+                                      project_title=project_title, project_tagline=project_tagline, project_link=project_link,
+                                      job_title=job_title, company_name=company_name, company_role=company_role, company_year_from=company_year_from, company_year_to=company_year_to, role=role
+                                      )
+                Details.save()
+                messages.success(request, 'Saved to DB')
+                # print(Details.uid)
+                return redirect('/select_template/{}'.format(Details.uid))
 
-                # else:
-                #     messages.warning(request, "Already Exist")
+            # else:
+            #     messages.warning(request, "Already Exist")
             except Exception as e:
                 print(e)
                 messages.warning(
@@ -161,68 +160,72 @@ def Logout(request):
 # template
 def select_template(request, id):
     data = userDetails.objects.get(uid=id)
-    if(data==''):
+    if(data == ''):
         return HttpResponse("<h1>NOT FOUND<h1>")
     else:
         return render(request, "select_temp.html", {'id': id})
 
+
 def remove(string):
     return "".join(string.split())
 
+
 def create_list(string):
-    x=remove(string)
-    list=[]
-    a=''
+    x = remove(string)
+    list = []
+    a = ''
     for i in x:
-        if(i==','):
-            if(a!=''):
+        if(i == ','):
+            if(a != ''):
                 list.append(a)
-            a=''
+            a = ''
         else:
-            a=a+i
+            a = a+i
     list.append(a)
     return list
 
 
 def template1(request, id):
     data = userDetails.objects.get(uid=id)
-    hobby_list=create_list(data.hobby1)
-    achievement_list=create_list(data.achievement1)
-    lang_list=create_list(data.lang1)
-    skill_list=create_list(data.skill1)
+    hobby_list = create_list(data.hobby1)
+    achievement_list = create_list(data.achievement1)
+    lang_list = create_list(data.lang1)
+    skill_list = create_list(data.skill1)
     # print(data.first_name)
     # print("////")
-    return render(request, "resume_templates/first_temp.html", {'data': data,'hobby':hobby_list,'achievement':achievement_list,'skill':skill_list,'lang':lang_list})
+    return render(request, "resume_templates/first_temp.html", {'data': data, 'hobby': hobby_list, 'achievement': achievement_list, 'skill': skill_list, 'lang': lang_list})
+
 
 def template2(request, id):
     data = userDetails.objects.get(uid=id)
-    ### interest
+    # interest
     # interest_string=data.hobby1
-    hobby_list=create_list(data.hobby1)
-    achievement_list=create_list(data.achievement1)
-    lang_list=create_list(data.lang1)
-    skill_list=create_list(data.skill1)
+    hobby_list = create_list(data.hobby1)
+    achievement_list = create_list(data.achievement1)
+    lang_list = create_list(data.lang1)
+    skill_list = create_list(data.skill1)
     # print(data.first_name)
-    return render(request, "resume_templates/temp2.html", {'data': data,'hobby':hobby_list,'achievement':achievement_list,'skill':skill_list,'lang':lang_list})
+    return render(request, "resume_templates/temp2.html", {'data': data, 'hobby': hobby_list, 'achievement': achievement_list, 'skill': skill_list, 'lang': lang_list})
+
 
 def template3(request, id):
     data = userDetails.objects.get(uid=id)
-    hobby_list=create_list(data.hobby1)
-    achievement_list=create_list(data.achievement1)
-    lang_list=create_list(data.lang1)
-    skill_list=create_list(data.skill1)
+    hobby_list = create_list(data.hobby1)
+    achievement_list = create_list(data.achievement1)
+    lang_list = create_list(data.lang1)
+    skill_list = create_list(data.skill1)
     # print(data.first_name)
-    return render(request, "resume_templates/temp3.html", {'data': data,'hobby':hobby_list,'achievement':achievement_list,'skill':skill_list,'lang':lang_list})
+    return render(request, "resume_templates/temp3.html", {'data': data, 'hobby': hobby_list, 'achievement': achievement_list, 'skill': skill_list, 'lang': lang_list})
 
 
 def template4(request, id):
     data = userDetails.objects.get(uid=id)
-    hobby_list=create_list(data.hobby1)
-    achievement_list=create_list(data.achievement1)
-    lang_list=create_list(data.lang1)
-    skill_list=create_list(data.skill1)
+    hobby_list = create_list(data.hobby1)
+    achievement_list = create_list(data.achievement1)
+    lang_list = create_list(data.lang1)
+    skill_list = create_list(data.skill1)
     # print(data.first_name)
-    return render(request, "resume_templates/temp4.html", {'data': data,'hobby':hobby_list,'achievement':achievement_list,'skill':skill_list,'lang':lang_list})
+    return render(request, "resume_templates/temp4.html", {'data': data, 'hobby': hobby_list, 'achievement': achievement_list, 'skill': skill_list, 'lang': lang_list})
 
 
 # download pdf
@@ -262,6 +265,6 @@ def download(request, id):
 #     return render(request, "list.html", {'list': profile})
 
 
-def dashboard(request,id):
+def dashboard(request, id):
     # print(type(id))
-    return render(request, "dashboard.html",{'id':id})
+    return render(request, "dashboard.html", {'id': id})

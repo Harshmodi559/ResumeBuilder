@@ -51,7 +51,6 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Resume</a>
-     
     </nav>
 
     {% if messages %} {% for message in messages %}
@@ -86,71 +85,103 @@
       </div>
     </div>
 
-  <div class="modal" id="modal_login">   
-    <div class="modal-content animate">
-      <div id="card-title">
-        <h2>LOGIN</h2>
-      </div>
-      <form method="post" class="form" action="login">
-        {% csrf_token %}
-        <label for="user-email" style="padding-top:13px">
+    <div class="modal" id="modal_login">
+      <div class="modal-content animate">
+        <div id="card-title">
+          <h2>LOGIN</h2>
+        </div>
+        <form method="post" class="form" action="login">
+          {% csrf_token %}
+          <label for="user-email" style="padding-top: 13px">
             &nbsp;Username
           </label>
-        <input id="user-email" class="form-content" type="text" name="username" autocomplete="on" required />
-        <div class="form-border"></div>
-        <label for="user-password" style="padding-top:22px">&nbsp;Password
+          <input
+            id="user-email"
+            class="form-content"
+            type="text"
+            name="username"
+            autocomplete="on"
+            required
+          />
+          <div class="form-border"></div>
+          <label for="user-password" style="padding-top: 22px"
+            >&nbsp;Password
           </label>
-        <input id="user-password" class="form-content" type="password" name="password" required />
-   
-        <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
-      
-      </form>
-      <br>
-      <button class="cancel_btn" onclick="cancel_login_form()">Cancel</button>
-    </div>
-  </div>
-  
-  <div class="modal" id="modal_signup">   
-    <div class="modal-content animate">
-      <div id="card-title">
-        <h2>SIGNUP</h2>
+          <input
+            id="user-password"
+            class="form-content"
+            type="password"
+            name="password"
+            required
+          />
+
+          <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
+        </form>
+        <br />
+        <button class="cancel_btn" onclick="cancel_login_form()">Cancel</button>
       </div>
-       <form action="signup" class="form" method="post">
+    </div>
+
+    <div class="modal" id="modal_signup">
+      <div class="modal-content animate">
+        <div id="card-title">
+          <h2>SIGNUP</h2>
+        </div>
+        <form action="signup" class="form" method="post">
           {% csrf_token %}
-        <label for="name" style="padding-top:13px">&nbsp;Name</label>
-        <input class="form-content" id="name" type="text" name="fname" autocomplete="on" required />
-        <div class="form-border"></div>
-        
-        <label for="username" style="padding-top:22px">&nbsp;Username</label>
-        <input  class="form-content" type="text" name="username" required />
-        <div class="form-border"></div>
+          <label for="name" style="padding-top: 13px">&nbsp;Name</label>
+          <input
+            class="form-content"
+            id="name"
+            type="text"
+            name="fname"
+            autocomplete="on"
+            required
+          />
+          <div class="form-border"></div>
 
-        <label for="email" style="padding-top:22px">&nbsp;Email</label>
-        <input  class="form-content" id="email" type="email" name="email" required />
-        <div class="form-border"></div>
+          <label for="username" style="padding-top: 22px">&nbsp;Username</label>
+          <input class="form-content" type="text" name="username" required />
+          <div class="form-border"></div>
 
-        <label for="password" style="padding-top:22px">&nbsp;Password</label>
-        <input id="password" class="form-content" type="password" name="password" required />
-        <div class="form-border"></div>
+          <label for="email" style="padding-top: 22px">&nbsp;Email</label>
+          <input
+            class="form-content"
+            id="email"
+            type="email"
+            name="email"
+            required
+          />
+          <div class="form-border"></div>
 
-        <input id="submit-btn" type="submit" name="submit" value="SIGNUP" />
-      </form>
-      <br>
-      <button class="cancel_btn" onclick="cancel_signup_form()">Cancel</button>
-      
+          <label for="password" style="padding-top: 22px">&nbsp;Password</label>
+          <input
+            id="password"
+            class="form-content"
+            type="password"
+            name="password"
+            required
+          />
+          <div class="form-border"></div>
+
+          <input id="submit-btn" type="submit" name="submit" value="SIGNUP" />
+        </form>
+        <br />
+        <button class="cancel_btn" onclick="cancel_signup_form()">
+          Cancel
+        </button>
+      </div>
     </div>
-  </div> 
-   <!-- Footer -->
-   <footer class="page-footer font-small">
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-      <a href="/"> Resume Builder</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+    <!-- Footer -->
+    <footer class="page-footer font-small">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2022 Copyright:
+        <a href="/"> Resume Builder</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
     <!-- js file linked -->
     <script src="{% static 'js/home.js' %}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -32,16 +32,13 @@
   </head>
 
   <body>
-
-    {% if user.is_authenticated %}
-   
-
-    {% if messages %} {% for message in messages%}
+    {% if user.is_authenticated %} {% if messages %} {% for message in
+    messages%}
     <div
       class="mt-3 alert alert-{{message.tags}} alert-dismissible fade show"
       role="alert"
     >
- <strong>{{message}}</strong>
+      <strong>{{message}}</strong>
       <button
         type="button"
         class="close"
@@ -58,9 +55,7 @@
           <div class="row">
             <div
               class="col-block col-md-auto resume-picture-holder text-center text-md-start"
-            >
-       
-            </div>
+            ></div>
             <!--//col-->
             <div class="col">
               <div
@@ -122,7 +117,8 @@
           <!--//row-->
         </header>
         <div class="resume-body p-5">
-          {% comment %} <section class="resume-section summary-section mb-5">
+          {% comment %}
+          <section class="resume-section summary-section mb-5">
             <h2
               class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3"
             >
@@ -130,20 +126,21 @@
             </h2>
             <div class="resume-section-content">
               <p class="mb-0">
-                Summarise your career here.
-                Aenean commodo ligula eget dolor aenean massa. Cum sociis
-                natoque penatibus et magnis dis parturient montes, nascetur
-                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget. Lorem ipsum dolor
-                sit amet, consectetuer adipiscing elit.
+                Summarise your career here. Aenean commodo ligula eget dolor
+                aenean massa. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Donec quam felis,
+                ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Donec quam felis,
+                ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                consequat massa quis enim. Donec pede justo, fringilla vel,
+                aliquet nec, vulputate eget. Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit.
               </p>
             </div>
-          </section> {% endcomment %}
+          </section>
+          {% endcomment %}
           <!--//summary-section-->
           <div class="row">
             <div class="col-lg-9">
@@ -181,32 +178,7 @@
                       <!--//resume-timeline-item-desc-->
                     </article>
                     <!--//resume-timeline-item-->
-                    {% comment %} <article
-                      class="resume-timeline-item position-relative pb-5"
-                    >
-                      <div class="resume-timeline-item-header mb-2">
-                        <div class="d-flex flex-column flex-md-row">
-                          <h3
-                            class="resume-position-title font-weight-bold mb-1"
-                          >
-                            {{data.job_title}}
-                          </h3>
-                          <div class="resume-company-name ms-auto">
-                            {{data.company_name}}
-                          </div>
-                        </div>
-                        <!--//row-->
-                        <div class="resume-position-time">
-                          {{data.company_year_from}}-{{data.company_year_to}}
-                        </div>
-                      </div>
-                      <!--//resume-timeline-item-header-->
-                      <div class="resume-timeline-item-desc">
-                        <p>{{data.role}}</p>
-                      </div>
-                      <!--//resume-timeline-item-desc-->
-                    </article>
-                    <!--//resume-timeline-item-->
+                    {% comment %}
                     <article
                       class="resume-timeline-item position-relative pb-5"
                     >
@@ -309,7 +281,34 @@
                         <p>{{data.role}}</p>
                       </div>
                       <!--//resume-timeline-item-desc-->
-                    </article> {% endcomment %}
+                    </article>
+                    <!--//resume-timeline-item-->
+                    <article
+                      class="resume-timeline-item position-relative pb-5"
+                    >
+                      <div class="resume-timeline-item-header mb-2">
+                        <div class="d-flex flex-column flex-md-row">
+                          <h3
+                            class="resume-position-title font-weight-bold mb-1"
+                          >
+                            {{data.job_title}}
+                          </h3>
+                          <div class="resume-company-name ms-auto">
+                            {{data.company_name}}
+                          </div>
+                        </div>
+                        <!--//row-->
+                        <div class="resume-position-time">
+                          {{data.company_year_from}}-{{data.company_year_to}}
+                        </div>
+                      </div>
+                      <!--//resume-timeline-item-header-->
+                      <div class="resume-timeline-item-desc">
+                        <p>{{data.role}}</p>
+                      </div>
+                      <!--//resume-timeline-item-desc-->
+                    </article>
+                    {% endcomment %}
                     <!--//resume-timeline-item-->
 
                     <article
@@ -354,9 +353,11 @@
                 </h2>
                 <div class="resume-section-content">
                   <div class="resume-skill-item">
-                    {% comment %} <h4 class="resume-skills-cat font-weight-bold">
+                    {% comment %}
+                    <h4 class="resume-skills-cat font-weight-bold">
                       {{data.skill1}}
-                    </h4> {% endcomment %}
+                    </h4>
+                    {% endcomment %}
                     <ul class="list-unstyled mb-4">
                       {% for i in skill %}
                       <li class="mb-2">
@@ -372,8 +373,8 @@
                           ></div>
                         </div>
                       </li>
-                      {% endfor %}
-                      {% comment %} <li class="mb-2">
+                      {% endfor %} {% comment %}
+                      <li class="mb-2">
                         <div class="resume-skill-name">{{data.skill3}}</div>
                         <div class="progress resume-progress">
                           <div
@@ -412,14 +413,14 @@
                             aria-valuemax="100"
                           ></div>
                         </div>
-                      </li> {% endcomment %}
+                      </li>
+                      {% endcomment %}
                     </ul>
                   </div>
                   <!--//resume-skill-item-->
 
                   <!--//resume-skill-item-->
 
-                  
                   <!--//resume-skill-item-->
                 </div>
                 <!--resume-section-content-->
@@ -458,7 +459,7 @@
                 </div>
               </section>
               <!--//education-section-->
-              
+
               <!--//interests-section-->
               <section class="resume-section language-section mb-5">
                 <h2
@@ -474,13 +475,13 @@
                         >{{i}}</span
                       >
                     </li>
-                    {% endfor %}
-                    {% comment %} <li>
+                    {% endfor %} {% comment %}
+                    <li>
                       <span class="resume-lang-name font-weight-bold"
                         >{{data.lang2}}</span
                       >
-                      
-                    </li> {% endcomment %}
+                    </li>
+                    {% endcomment %}
                   </ul>
                 </div>
               </section>
@@ -496,7 +497,6 @@
                     {% for i in hobby %}
                     <li class="mb-1">{{i}}</li>
                     {% endfor %}
-   
                   </ul>
                 </div>
               </section>
@@ -508,14 +508,18 @@
         <!--//resume-body-->
       </div>
     </article>
-    <a href="{% url 'download' data.uid %}"><button class="btns">Download Resume</button></a>
+    <a href="{% url 'download' data.uid %}"
+      ><button class="btns">Download Resume</button></a
+    >
 
     {% else %}
-      <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Resume</a>     
-          <a href="{% url 'login' %}"> <button class="btns" type="submit">Login</button></a>
-      </nav>
-      {% endif %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>
+      <a href="{% url 'login' %}">
+        <button class="btns" type="submit">Login</button></a
+      >
+    </nav>
+    {% endif %}
 
     <script src="{% static 'js/main.js' %}"></script>
   </body>

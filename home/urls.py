@@ -16,6 +16,6 @@ urlpatterns = [
     path('template3/<int:id>', views.template3, name='template3'),
     path('template4/<int:id>', views.template4, name='template4'),
     path('download/<int:id>', views.download, name="download"),
-    path('dashboard/<int:id>',views.dashboard,name="dashboard"),
-   
+    path('dashboard/<int:id>', views.dashboard, name="dashboard"),
+
 ]

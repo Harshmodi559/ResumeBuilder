@@ -45,31 +45,33 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
     ></script>
-    <link rel="stylesheet" href="{% static 'css/history.css' %}" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/history.css' %}"
+      type="text/css"
+    />
     <title>History</title>
   </head>
   <body>
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for i in data %}
-          <tr>
-            <th scope="row">1</th>
-            <td>{{i.first_name}}</td>
-            <td>{{i.last_name}}</td>
-            <td>{{i.uid}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-
-
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data %}
+        <tr>
+          <th scope="row">1</th>
+          <td>{{i.first_name}}</td>
+          <td>{{i.last_name}}</td>
+          <td>{{i.uid}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
-  </html>
+</html>
