@@ -1,0 +1,105 @@
+body {
+  background: linear-gradient(
+    73deg,
+    rgb(68 22 255 / 95%) 0%,
+    rgb(0 31 136 / 76%) 48%,
+    rgb(255 98 67 / 82%) 100%
+  );
+}
+.container {
+  padding-top: 30px;
+}
+.wrapper {
+  /* width: 70.0551181102rem; */
+
+  margin: auto;
+  /* box-shadow: rgb(0 0 0 / 30%) 0.4rem 0.7rem 9.3rem 0.3rem; */
+}
+
+.section-2 {
+  display: flex;
+}
+
+input,
+#txtarea {
+  background: #1f211f2b;
+  width: 100%;
+  font-weight: 600;
+  color: #dfdfdfdb;
+  border-radius: 10px;
+  padding: 22px;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  /* border: 1px solid black; */
+  margin-bottom: 20px;
+}
+
+/* {
+    background-color: #fefefe;
+    margin:10px;
+    width: 70%;  
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid black;
+} */
+
+.section-1 {
+  display: flex;
+  width: 1140px;
+  margin: auto;
+  /* margin-top: 20%; */
+}
+#icon > #rocket_icon {
+  width: 205px;
+  text-align: center;
+}
+
+#text {
+  padding: 100px;
+  /* margin-top: 20%; */
+  width: 73%;
+  color: white;
+}
+#icon {
+  margin: auto;
+  width: 20%;
+}
+
+label {
+  color: #dfdfdfec;
+  font-size: 20px;
+}
+h2 {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+
+.btns {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 35.3px;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  /* font-weight: 600; */
+  /* letter-spacing: 0.4px; */
+  transition: 0.3s;
+  width: 106px;
+
+
+}
+.btns:hover {
+  /* background: -webkit-linear-gradient(right, #513cf1, #f2777d); */
+  color: white;
+  background: -webkit-linear-gradient(left, #221e1e, #3f539c);
+  border: none;
+  outline: none;
+  /* transition: 0.6s; */
+}

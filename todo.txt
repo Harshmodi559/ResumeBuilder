@@ -1,3 +1,6 @@
 todo:
-add new login card design
-not saving input field and not redering next page 
+dashboard css
+logout button css
+templates photo on hover effect
+text add on
+download 

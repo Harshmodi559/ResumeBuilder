@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,1000,700&display=swap"
+    />
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Material Design Bootstrap -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- JQuery -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <!-- Bootstrap tooltips -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+    ></script>
+    <!-- Bootstrap core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+    ></script>
+    <!-- MDB core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+    ></script>
+    <link rel="stylesheet" href="{% static 'css/entries.css' %}" />
+
+    <title>entries</title>
+  </head>
+  <body>
+   
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>     
+        <a href="{% url 'logout' %}"> <button class="btns" type="submit">Logout</button></a>
+    </nav>
+    {% if messages %} {% for message in messages%}
+    <div
+      class="mt-3 alert alert-{{message.tags}} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{message}}</strong>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %} {% endif %}
+
+    <div class="section-1">
+      <div id="text">
+        <p
+          style="
+            font-size: 62px;
+            font-weight: 600;
+            text-align: center;
+            margin: 0px;
+          "
+        >
+          Let's boost your career
+        </p>
+        <p style="font-size: 21px; font-weight: 400; text-align: left">
+          Showcase your skills and talents. Make a great first impression.
+        </p>
+      </div>
+      <div id="icon">
+        <img
+          id="rocket_icon"
+          src="{% static 'images/startup.png' %}"
+          alt="rocket"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <form action="{% url 'entries' user.id %}" method="post">
+        {% csrf_token %}
+
+        <div class="wrapper">
+          <h2>Personal Info</h2>
+
+          <br />
+          <label>First Name</label><br />
+          <input   type="text" size="100" name="firstname" required /> <br />
+          <label>Last Name</label><br />
+          <input  type="text" size="100" name="lastname" required /> <br />
+          <label>Profession</label><br />
+          <input  type="text" size="100" name="profession" required /> <br />
+          <label>Tell about Yourself</label><br />
+          <textarea
+            id="txtarea"
+            name="about"
+            row="5"
+            coloumn="30"
+            required
+          ></textarea>
+
+          <h2>Contact Info</h2>
+          <label>Address</label><br />
+          <input  type="text" size="100" name="address" required /> <br />
+          <label>Mail</label><br />
+          <input  type="email" size="100" name="email" required /> <br />
+          <label>Phone Number</label><br />
+          <input  type="number" size="100" name="phone_number" required /> <br />
+          <label>Github Profile Link</label><br />
+          <input  type="link" size="100" name="github" required /> <br />
+          <label>Linkedin Profile Link</label><br />
+          <input  type="link" size="100" name="linkedin" required /> <br />
+
+          <h2>Education</h2>
+          <label>Master Degree</label><br />
+          <input  type="text" size="100" name="master_degree" required /> <br />
+          <label>Master Year From</label><br />
+          <input  type="number" size="100" name="master_year_from" required />
+          <br />
+          <label>Master Year To</label><br />
+          <input  type="number" size="100" name="master_year_to" required />
+          <br />
+          <label> University Name</label><br />
+          <input  type="text" size="100" name="university_name" required />
+          <br />
+
+          <label>School Degree </label><br />
+          <input  type="text" size="100" name="school_degree" required /> <br />
+          <label> School Year From</label><br />
+          <input  type="number" size="100" name="school_year_from" required />
+          <br />
+          <label> School Year To</label><br />
+          <input  type="number" size="100" name="school_year_to" required />
+          <br />
+          <label>School Name </label><br />
+          <input  type="text" size="100" name="school_name" required /> <br />
+
+          <h2>Language Known</h2>
+          <label>Native</label><br />
+          <input  type="text" size="100" name="language1" required /> <br />
+          {% comment %} <label>Native</label><br />
+          <input  type="text" size="100" name="language2" required /> <br /> {% endcomment %}
+
+          <h2>Interest</h2>
+          <label> </label><br />
+          <input  type="text" size="100" name="hobby1" required /> <br />
+          {% comment %} <label> </label><br />
+          <input  type="text" size="100" name="hobby2" required /> <br />
+          <label> </label><br />
+          <input  type="text" size="100" name="hobby3" required /> <br /> {% endcomment %}
+
+          <h2>Experience</h2>
+          <label> Job Title </label><br />
+          <input  type="text" size="100" name="job_title" required /> <br />
+          <label>Company Name </label><br />
+          <input  type="text" size="100" name="company_name" required /> <br />
+          <label> Company Role</label><br />
+          <input  type="text" size="100" name="company_role" required /> <br />
+          <label>Company Year From </label><br />
+          <input  type="number" size="100" name="company_year_from" required />
+          <br />
+          <label> Company Year To</label><br />
+          <input  type="number" size="100" name="company_year_to" required />
+          <br />
+          <label>Role </label><br />
+          <input  type="text" size="100" name="role" required /> <br /><br />
+
+          <h2>Projects</h2>
+          <label> Project Title </label><br />
+          <input  type="text" size="100" name="project_title" required /> <br />
+          <label> Project Link</label><br />
+          <input  type="text" size="100" name="project_link" required /> <br />
+          <label>Project Tagline </label><br />
+          <input  type="text" size="100" name="project_tagline" required />
+          <br />
+
+          <h2>Professional Skills</h2>
+          <label> </label><br />
+          <input  type="text" size="100" name="skill1" required /> <br />
+          {% comment %} <label> </label><br />
+          <input  type="text" size="100" name="skill2" required /> <br />
+          <label> </label><br />
+          <input  type="text" size="100" name="skill3" required /> <br />
+          <label> </label><br />
+          <input  type="text" size="100" name="skill4" required /> <br />
+          <label> </label><br />
+          <input  type="text" size="100" name="skill5" required /> <br /> {% endcomment %}
+
+          <h2>Achievement</h2>
+          <label> </label><br />
+          <input  type="text" size="100" name="achievement1"  /> <br />
+          {% comment %} <label> </label><br />
+          <input  type="text" size="100" name="achievement2" required /> <br /> {% endcomment %}
+
+          <br/><br/>  
+          <button class="btns" type="submit">Submit</button>
+        </div>
+      </form>
+
+      {% comment %} <a href="{% url 'history' user.id %}">HISTORY</a> {%endcomment %}
+    </div>
+
+    {% else %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>     
+        <a href="{% url 'login' %}"> <button class="btns" type="submit">Login</button>
+    </nav>
+    {% endif %}
+
+       <!-- Footer -->
+<footer class="page-footer font-small">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href="/"> Resume Builder</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    <script src="{% static 'js/entries.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

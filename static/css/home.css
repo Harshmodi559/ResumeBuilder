@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(
+    132deg, rgb(111 78 246 / 59%) 0%, rgb(0 31 136 / 76%) 48%, rgb(255 98 67 / 82%) 100% );
+}
+
 .navbar-collapse {
   margin: auto;
   width: 50%;
@@ -5,8 +10,7 @@
 .section-1 {
   display: flex;
 }
-.navbar-brand
-{
+.navbar-brand {
   color: red;
 }
 
@@ -18,11 +22,13 @@
   margin-left: 7.5%;
   padding-top: 12.3125rem;
   line-height: 120%;
+  color: white;
 }
 
 .left > p {
   max-width: 27.6875rem;
   margin-bottom: 2.25rem;
+  color: white;
   font-weight: 500;
   font-size: 1.25rem;
   line-height: 140%;
@@ -31,32 +37,37 @@
   margin-left: 7.5%;
 }
 
-.btns{
-  color: #fff !important;
-  padding: 17px;
-  background-color: #733fec;
-  width: 30%;
-  margin-left: 7.5%;
+.btns {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+    border: none;
+    border-radius: 21px;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 53.3px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    transition: 0.3s;
+    width: 188px;
+    margin-left: 7.5%;
+
+}
+.btns:hover {
+  /* background: -webkit-linear-gradient(right, #513cf1, #f2777d); */
+  color: white;
+  background: -webkit-linear-gradient(left, #221e1e, #3f539c);
+  border: none;
+  outline: none;
+  /* transition: 0.6s; */
 }
 .right > img {
   width: 90%;
 }
 
-/* MODAL LOGIN FORM */
-#modal_login , #modal_signup{
-  display: none; 
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%;
-  background-color: rgba(39, 39, 39, 0.4);
-  
-}
-
 /* Add Zoom Animation */
-.animate {
+#animate {
   animation: animatezoom 0.6s;
 }
 
@@ -69,37 +80,88 @@
   }
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  width: 30%;
-  border-radius: 18px;
-  padding: 100px;
-}
-
-.submit_btn {
-    background-color: rgba(186, 224, 158, 0.918);
-    color: black;
-    border-radius: 8px;
-    border: 0px;
-    margin:10px;
-    padding: 10px;
-    margin: 25px 0px;
-    width: 100%;
-  }
-  .submit_btn:hover{
-      background-color: rgba(191, 239, 132, 0.918);
-      color: black;
-      transition: 0.3s;
-  }
-
 .cancel_btn {
   background-color: rgba(255, 255, 255, 0.918);
-  color: red;
+  color: rgba(255, 0, 0, 0.695);
   border: 0px;
- text-align: center;
+  text-align: center;
   padding: 5px;
   width: 100%;
 }
 
 /* body{background-color: yellow;} */
+
+/*  LOGIN */
+
+a {
+  text-decoration: none;
+}
+
+label {
+  font-family: "Raleway", sans-serif;
+  font-size: 11pt;
+  font-weight: 500;
+}
+
+#modal_login,
+#modal_signup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(39, 39, 39, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  /* margin: 0% auto 15% auto; */
+  margin: auto;
+  margin-top: 30px;
+  width: 30%;
+  border-radius: 18px;
+  padding: 40px;
+}
+
+#card-title {
+  font-family: "Raleway Thin", sans-serif;
+  letter-spacing: 4px;
+  padding-bottom: 23px;
+  padding-top: 13px;
+  text-align: center;
+}
+
+#submit-btn {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+  border: none;
+  border-radius: 21px;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 43.3px;
+  margin: 0 auto;
+  margin-top: 50px;
+  transition: 0.25s;
+  width: 153px;
+}
+#submit-btn:hover {
+  background: -webkit-linear-gradient(left, #181414ad, #3f539c);
+}
+.form {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+}
+.form-border {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+  height: 1px;
+  width: 100%;
+}
+.form-content {
+  background: #fbfbfb;
+  border: none;
+  outline: none;
+  padding-top: 14px;
+}

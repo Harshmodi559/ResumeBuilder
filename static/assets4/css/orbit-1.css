@@ -60,7 +60,7 @@ p {
   color: #fff;
 }
 .sidebar-wrapper .profile-container {
-  padding: 30px;
+  padding: 24px;
   background: rgba(0, 0, 0, 0.2);
   text-align: center;
   color: #fff;
@@ -226,7 +226,7 @@ p {
 }
 
 .skillset .item {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 .skillset .level-title {
@@ -286,4 +286,30 @@ p {
     width: 30%;
     margin-bottom: 0;
   }
+}
+
+.btns {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 35.3px;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  /* font-weight: 600; */
+  /* letter-spacing: 0.4px; */
+  transition: 0.3s;
+  width: 106px;
+  /* margin-left: 7.5%;
+
+}
+.btns:hover {
+  /* background: -webkit-linear-gradient(right, #513cf1, #f2777d); */
+  color: white;
+  background: -webkit-linear-gradient(left, #221e1e, #3f539c);
+  border: none;
+  outline: none;
+  /* transition: 0.6s; */
 }

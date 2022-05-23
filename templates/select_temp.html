@@ -1,17 +1,127 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!-- Font Awesome -->
+     <link
+     rel="stylesheet"
+     href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+   />
+   <!-- Google Fonts -->
+   <link
+     rel="stylesheet"
+     href="https://fonts.googleapis.com/css?family=Roboto:300,400,1000,700&display=swap"
+   />
+   <!-- Bootstrap core CSS -->
+   <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+     rel="stylesheet"
+   />
+   <!-- Material Design Bootstrap -->
+   <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+     rel="stylesheet"
+   />
+   <!-- JQuery -->
+   <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+   ></script>
+   <!-- Bootstrap tooltips -->
+   <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+   ></script>
+   <!-- Bootstrap core JavaScript -->
+   <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+   ></script>
+   <!-- MDB core JavaScript -->
+   <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+   ></script>
+   <link rel="stylesheet" href="{% static 'css/select_temp.css' %}" />
+
     <title>Template Select</title>
   </head>
   <body>
-    <h1>Select Templates</h1>
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>     
+        <a href="{% url 'logout' %}"> <button class="btns" type="submit">Logout</button></a>
+    </nav>
+    
+    {% if messages %} {% for message in messages%}
+    <div
+      class="mt-3 alert alert-{{message.tags}} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{message}}</strong>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %} {% endif %}
+ <br><br>
+    <div class="section-2">
+      <h2 style="text-align:center;color:white">Select Template</h2>
 
-    <a href="{% url 'template1' id %}"><button>First Temp</button></a>
-    <a href="{% url 'template2' id %}"><button>Second Temp</button></a>
-    <a href="{% url 'template3' id %}"><button>third Temp</button></a>
-    <a href="{% url 'template4' id %}"><button>fourth Temp</button></a>
+      <div class="all_templates">
+        <div style="display: flex;
+        width: 80%;padding:30px;
+        margin: auto;">
+        <a style="padding:15px"  href="{% url 'template1' id %}"> <img class="imgs1" src="{% static 'images/temp1.png' %}" alt="temp1"></a>
+          <a style="padding:15px"  href="{% url 'template2' id %}"><img class="imgs2" src="{% static 'images/2.png' %}" alt="temp2"></a>
+        </div>
+        <div style="display: flex;
+        width: 80%;padding:30px;
+        margin: auto;"> 
+          <a style="padding:15px" href="{% url 'template3' id %}"> <img class="imgs3" src="{% static 'images/3.png' %}" alt="temp3"></a>
+              <a style="padding:15px"  href="{% url 'template4' id %}"> <img class="imgs4" src="{% static 'images/4.png' %}" alt="temp4"></a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% else %}
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Resume</a>     
+        <a href="{% url 'login' %}"> <button class="btns" type="submit">Login</button>
+    </nav>
+    {% endif %}
+
+    <!-- Footer -->
+<footer class="page-footer font-small">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href="/"> Resume Builder</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    {% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
   </body>
 </html>

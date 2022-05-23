@@ -51,17 +51,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Resume</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+     
     </nav>
 
     {% if messages %} {% for message in messages %}
@@ -88,190 +78,79 @@
           templates.
         </p>
 
-        <button class="btns" onclick="login()">LogIn</button>
-        <button class="btns" onclick="signup()">SignUp</button>
+        <button class="btns" onclick="login()">LOGIN</button>
+        <button class="btns" onclick="signup()">SIGNUP</button>
       </div>
       <div class="right">
         <img src="{% static 'images/1.jpg' %}" />
       </div>
     </div>
 
-    <div class="modal_form" id="modal_login">
-      <div class="modal-content animate">
-        <form style="width: 100%" action="login" method="post">
-          {% csrf_token %}
-          <label for="username"><b>Username</b></label>
-          <input type="text" id="name" name="name" size="27" required />
-          <br />
-          <br />
-          <label for="password"><b>Password</b></label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            size="27"
-            required
-          />
-          <br />
-          <button class="submit_btn" type="submit"><b>login</b></button>
-        </form>
-
-        <button class="cancel_btn" onclick="cancel_login_form()">Cancel</button>
-      </div>
-    </div>
-
-    {% comment %}  New login card with css {% endcomment %}
-  {% comment %} <div id="card">   
-    <div id="card-content">
+  <div class="modal" id="modal_login">   
+    <div class="modal-content animate">
       <div id="card-title">
         <h2>LOGIN</h2>
-        <div class="underline-title"></div>
       </div>
-      <form method="post" class="form">
+      <form method="post" class="form" action="login">
+        {% csrf_token %}
         <label for="user-email" style="padding-top:13px">
-            &nbsp;Email
+            &nbsp;Username
           </label>
-        <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required />
+        <input id="user-email" class="form-content" type="text" name="username" autocomplete="on" required />
         <div class="form-border"></div>
         <label for="user-password" style="padding-top:22px">&nbsp;Password
           </label>
         <input id="user-password" class="form-content" type="password" name="password" required />
-        <div class="form-border"></div>
-        <a href="#">
-          <legend id="forgot-pass">Forgot password?</legend>
-        </a>
+   
         <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
-        <a href="#" id="signup">Don't have account yet?</a>
+      
       </form>
+      <br>
+      <button class="cancel_btn" onclick="cancel_login_form()">Cancel</button>
     </div>
-  </div> {% endcomment %}
-  {% comment %} css {% endcomment %}
-  {% comment %} a {
-    text-decoration: none;
-  }
-  body {
-    background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
-    background-repeat: no-repeat;
-  }
-  label {
-    font-family: "Raleway", sans-serif;
-    font-size: 11pt;
-  }
-  #forgot-pass {
-    color: #2dbd6e;
-    font-family: "Raleway", sans-serif;
-    font-size: 10pt;
-    margin-top: 3px;
-    text-align: right;
-  }
-  #card {
-    background: #fbfbfb;
-    border-radius: 8px;
-    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-    height: 410px;
-    margin: 6rem auto 8.1rem auto;
-    width: 329px;
-  }
-  #card-content {
-    padding: 12px 44px;
-  }
-  #card-title {
-    font-family: "Raleway Thin", sans-serif;
-    letter-spacing: 4px;
-    padding-bottom: 23px;
-    padding-top: 13px;
-    text-align: center;
-  }
-  #signup {
-    color: #2dbd6e;
-    font-family: "Raleway", sans-serif;
-    font-size: 10pt;
-    margin-top: 16px;
-    text-align: center;
-  }
-  #submit-btn {
-    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
-    border: none;
-    border-radius: 21px;
-    box-shadow: 0px 1px 8px #24c64f;
-    cursor: pointer;
-    color: white;
-    font-family: "Raleway SemiBold", sans-serif;
-    height: 42.3px;
-    margin: 0 auto;
-    margin-top: 50px;
-    transition: 0.25s;
-    width: 153px;
-  }
-  #submit-btn:hover {
-    box-shadow: 0px 1px 18px #24c64f;
-  }
-  .form {
-    align-items: left;
-    display: flex;
-    flex-direction: column;
-  }
-  .form-border {
-    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
-    height: 1px;
-    width: 100%;
-  }
-  .form-content {
-    background: #fbfbfb;
-    border: none;
-    outline: none;
-    padding-top: 14px;
-  }
-  .underline-title {
-    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
-    height: 2px;
-    margin: -1.1rem auto 0 auto;
-    width: 89px;
-  } {% endcomment %}
+  </div>
   
-
-
-    <div class="modal_form" id="modal_signup">
-      <div class="modal-content animate">
-        <form action="signup" method="post">
-          {% csrf_token %}
-          <label for="firstname"><b>Name</b></label>
-          <input type="text" id="fname" name="fname" size="27" required />
-          <br />
-          <label for="username"><b>Username</b></label>
-          <input type="text" id="name" name="username" size="27" required />
-          <br />
-          <label for="email"><b>Email</b></label>
-          <input type="email" id="email" name="email" size="27" required />
-          <br />
-          <label for="pass"><b>Password</b></label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            size="27"
-            required
-          />
-          <br />
-          <label for="pass2"><b>Confirm Password</b></label>
-          <input
-            type="password"
-            id="password2"
-            name="password2"
-            size="27"
-            required
-          />
-          <br />
-          <br />
-          <button class="submit_btn" type="submit">SignUp</button>
-        </form>
-
-        <button class="cancel_btn" onclick="cancel_signup_form()">
-          Cancel
-        </button>
+  <div class="modal" id="modal_signup">   
+    <div class="modal-content animate">
+      <div id="card-title">
+        <h2>SIGNUP</h2>
       </div>
-    </div>
+       <form action="signup" class="form" method="post">
+          {% csrf_token %}
+        <label for="name" style="padding-top:13px">&nbsp;Name</label>
+        <input class="form-content" id="name" type="text" name="fname" autocomplete="on" required />
+        <div class="form-border"></div>
+        
+        <label for="username" style="padding-top:22px">&nbsp;Username</label>
+        <input  class="form-content" type="text" name="username" required />
+        <div class="form-border"></div>
 
+        <label for="email" style="padding-top:22px">&nbsp;Email</label>
+        <input  class="form-content" id="email" type="email" name="email" required />
+        <div class="form-border"></div>
+
+        <label for="password" style="padding-top:22px">&nbsp;Password</label>
+        <input id="password" class="form-content" type="password" name="password" required />
+        <div class="form-border"></div>
+
+        <input id="submit-btn" type="submit" name="submit" value="SIGNUP" />
+      </form>
+      <br>
+      <button class="cancel_btn" onclick="cancel_signup_form()">Cancel</button>
+      
+    </div>
+  </div> 
+   <!-- Footer -->
+   <footer class="page-footer font-small">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <a href="/"> Resume Builder</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
     <!-- js file linked -->
     <script src="{% static 'js/home.js' %}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -1,37 +1,62 @@
-body{background-color:rgb(7, 115, 232);}
-
-.container
-{
-padding-top:30px;
-}
-.wrapper{
-    
-    width: 70.0551181102rem;
-    background: #fff;
-    margin: 30px auto;
-    box-shadow: rgb(0 0 0 / 30%) 0.4rem 0.7rem 9.3rem 0.3rem;
-
+body {
+  background: linear-gradient(
+    132deg,
+    rgb(111 78 246 / 59%) 0%,
+    rgb(0 31 136 / 76%) 48%,
+    rgb(255 98 67 / 82%) 100%
+  );
+  
+  /* background-repeat: no-repeat; */
 }
 
-.section-2
-{display: flex;}
+.btns {
+  background: -webkit-linear-gradient(right, #181414ad, #3f539c);
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 35.3px;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  /* font-weight: 600; */
+  /* letter-spacing: 0.4px; */
+  transition: 0.3s;
+  width: 106px;
+  /* margin-left: 7.5%;
+      
+      }
+      .btns:hover {
+        /* background: -webkit-linear-gradient(right, #513cf1, #f2777d); */
+  color: white;
+  background: -webkit-linear-gradient(left, #221e1e, #3f539c);
+  border: none;
+  outline: none;
+  /* transition: 0.6s; */
+}
 
-input{
-    background-color: #fefefe;
-    margin:10px;
-    width: 70%;  
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid black;
+.section {
+  display: flex;
 }
-#txtarea
-{
-    background-color: #fefefe;
-    margin:10px;
-    width: 70%;  
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid black;
+
+.card {
+  margin: 39px 96px;
+  /* padding: 40px; */
+  width: 577px;
+  align-items: center;
+  /* flex-wrap: wrap-reverse; */
+  /* text-align: center; */
+  height: 194px;
+  justify-content: center;
+  box-shadow: rgb(45 43 43 / 0%) 0px 12px 18px, rgb(37 32 32 / 48%) 0px 0px 26px;background: border-box;
+border-radius: 15px;
+
 }
+
+.card:hover{
+  transition: 0.3s;
+  box-shadow: rgb(45 43 43 / 64%) 0px 12px 18px, rgb(37 32 32 / 60%) 0px 0px 26px;
+}
+
+h1{color: white;
+font-size: 30px;}
